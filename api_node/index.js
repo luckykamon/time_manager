@@ -10,7 +10,6 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
-// var db = require('./api/db/connect')
 const db = require("./api/db/connect");
 
 const bcrypt = require('bcrypt');
