@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "e3968ee4-4c01-41ac-8245-31a73f9ca7d0",
+		"name": "Time manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User -> Get -> Se connecter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/users?username=admin&password=admin",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "contact@lucasbodin.com",
+									"description": "Adresse mail ",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "admin"
+								},
+								{
+									"key": "password",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User -> Get -> All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/users/all",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User -> Get -> userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/users/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User -> Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"username\":\"admin\",\r\n        \"email\":\"contact@lucasbodin.com\",\r\n        \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/users",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User -> Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"username\":\"lucasa\",\r\n        \"email\":\"lucas@epitcscch.eu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/users/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User -> Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/users/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Working Time",
+			"item": [
+				{
+					"name": "Working Time -> Get -> All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Working Time -> Get -> By userID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes/{{userID}}?start=0&end=2635328407000",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes",
+								"{{userID}}"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "0",
+									"description": "En timestamp"
+								},
+								{
+									"key": "end",
+									"value": "2635328407000",
+									"description": "En timestamp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Working Time -> Get -> By userID & id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes/{{userID}}/{{id}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes",
+								"{{userID}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Working Time -> Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start\": \"259200000\",\r\n    \"end\": \"288000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Working Time -> Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start\": \"1635324268\",\r\n    \"end\": \"1635424268\",\r\n    \"userID\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes/{{id}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Working Time -> Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/workingtimes/{{id}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"workingtimes",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clocks",
+			"item": [
+				{
+					"name": "Clocks -> Get -> All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/clocks",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"clocks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clocks -> Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/clocks/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"clocks",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clocks -> Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time\": \"1635324268\",\r\n    \"status\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/clocks/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"clocks",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clocks -> Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time\": \"1635324268\",\r\n    \"status\": \"1\",\r\n    \"userID\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/clocks/{{clockID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"clocks",
+								"{{clockID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Team -> Get -> All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/teams",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team -> Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\":\"warrior_team\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/teams",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team -> Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"second_name_yes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/teams/{{teamID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								"{{teamID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team -> Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/teams/{{teamID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								"{{teamID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team_connect",
+			"item": [
+				{
+					"name": "Team_connect -> Get -> All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/teams_connect",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams_connect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team_connect -> Get -> teams d'un utilisateur",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/teams_connect/teams/{{userID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams_connect",
+								"teams",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team_connect -> Get -> utilisateurs d'une team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlServer}}/api/teams_connect/users/{{teamID}}",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams_connect",
+								"users",
+								"{{teamID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team_connect -> Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"userID\":\"1\",\r\n        \"teamID\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/teams_connect",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams_connect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Team_connect -> Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"userID\":\"1\",\r\n        \"teamID\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlServer}}/api/teams_connect",
+							"host": [
+								"{{urlServer}}"
+							],
+							"path": [
+								"api",
+								"teams_connect"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJRCI6MiwiZXhwIjoxNjM4MDIyNDU4MTQ0LCJpYXQiOjE2Mzc5MzYwNTh9.yhYIGhWp8cWJeBkV9fZSfYU28qBHq2cCesiYm4-Z_gk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

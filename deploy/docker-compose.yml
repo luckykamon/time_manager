@@ -1,0 +1,46 @@
+version: '3.1'
+services:
+  mysql_time_manager:
+    container_name: mysql_time_manager
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: api_time_manager
+      MYSQL_USER: node
+      MYSQL_PASSWORD: root
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./api_time_manager.sql:/docker-entrypoint-initdb.d/api_time_manager.sql
+
+  api_time_manager:
+    build:
+      context: ../api_node
+      dockerfile: ../api_node/Dockerfile_api_node
+    container_name: api_node_prod
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    stdin_open: true
+    tty: true
+    environment:
+      MYSQL_HOST: mysql_time_manager
+      MYSQL_PORT: 3306
+    links:
+      - mysql_time_manager
+    depends_on:
+      - mysql_time_manager
+
+  theme02_time_manager:
+    build:
+      context: ../theme02
+      dockerfile: ../theme02/Dockerfile_theme02
+    container_name: theme02_prod
+    restart: unless-stopped
+    ports:
+      - "4010:80"
+    stdin_open: true
+    tty: true
+
+volumes:
+  data:
